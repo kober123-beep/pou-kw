@@ -21,7 +21,6 @@
             background-color: #0f172a;
         }
 
-        /* Custom glassmorphic styling */
         .glass-card {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
@@ -36,7 +35,6 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        /* Custom Bounce & pulse animations */
         @keyframes floatSlow {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-8px); }
@@ -45,7 +43,6 @@
             animation: floatSlow 3s ease-in-out infinite;
         }
 
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -59,7 +56,6 @@
             border-radius: 10px;
         }
 
-        /* Prevent text selection and drag images default */
         img {
             pointer-events: none;
         }
@@ -69,9 +65,7 @@
 
     <!-- TOP BAR: STATS & COINS HEADER -->
     <header class="w-full max-w-md px-3 pt-2 pb-1 z-20 flex flex-col gap-1.5">
-        <!-- Top row: Level, Coins, Sound, Shop -->
         <div class="flex items-center justify-between bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-2xl shadow-lg border border-white/50">
-            <!-- Level Badge -->
             <div class="flex items-center gap-1.5">
                 <div class="w-8 h-8 rounded-full bg-amber-500 text-white font-bold flex items-center justify-center text-sm shadow-md border-2 border-amber-300" id="levelBadge">
                     1
@@ -84,13 +78,11 @@
                 </div>
             </div>
 
-            <!-- Coins Display -->
             <div class="flex items-center gap-1 bg-amber-100/80 px-2.5 py-1 rounded-full border border-amber-300/60 shadow-inner">
                 <span class="text-base">🪙</span>
                 <span id="coinCount" class="font-extrabold text-amber-800 text-sm">150</span>
             </div>
 
-            <!-- Header Action Buttons -->
             <div class="flex items-center gap-1.5">
                 <button id="wardrobeBtn" class="p-1.5 rounded-xl bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-bold text-xs transition border border-indigo-200 shadow-sm active:scale-95 flex items-center gap-1">
                     <span>👕</span>
@@ -104,9 +96,7 @@
             </div>
         </div>
 
-        <!-- 4 Dynamic Stat Bars -->
         <div class="grid grid-cols-4 gap-1.5 bg-white/80 backdrop-blur-md p-1.5 rounded-2xl shadow-md border border-white/40">
-            <!-- Hunger Bar -->
             <div class="flex flex-col items-center">
                 <div class="flex items-center justify-between w-full px-1 mb-0.5">
                     <span class="text-[10px] font-bold text-amber-700">🍖 Lapar</span>
@@ -117,7 +107,6 @@
                 </div>
             </div>
 
-            <!-- Energy Bar -->
             <div class="flex flex-col items-center">
                 <div class="flex items-center justify-between w-full px-1 mb-0.5">
                     <span class="text-[10px] font-bold text-emerald-700">⚡ Energi</span>
@@ -128,7 +117,6 @@
                 </div>
             </div>
 
-            <!-- Cleanliness Bar -->
             <div class="flex flex-col items-center">
                 <div class="flex items-center justify-between w-full px-1 mb-0.5">
                     <span class="text-[10px] font-bold text-sky-700">🧼 Bersih</span>
@@ -139,7 +127,6 @@
                 </div>
             </div>
 
-            <!-- Fun Bar -->
             <div class="flex flex-col items-center">
                 <div class="flex items-center justify-between w-full px-1 mb-0.5">
                     <span class="text-[10px] font-bold text-pink-700">🎮 Main</span>
@@ -154,18 +141,14 @@
 
     <!-- MAIN GAME CANVAS VIEWPORT -->
     <main class="relative w-full max-w-md flex-1 flex flex-col items-center justify-center overflow-hidden my-1">
-        <!-- Room Title Badge -->
         <div class="absolute top-2 left-4 z-10 bg-white/70 backdrop-blur-md px-3 py-1 rounded-full shadow-sm border border-white/60 text-xs font-bold text-slate-700 flex items-center gap-1.5" id="roomTitleBadge">
             <span id="roomIcon">🍽️</span>
             <span id="roomName">Dapur</span>
         </div>
 
-        <!-- Room Canvas -->
         <canvas id="gameCanvas" class="w-full h-full block rounded-3xl shadow-2xl border-2 border-white/20 touch-none cursor-grab active:cursor-grabbing"></canvas>
 
-        <!-- Room Activity Control Tray (Dynamic Overlay at bottom of canvas) -->
         <div id="activityTray" class="absolute bottom-3 w-11/12 max-w-xs z-10 glass-card p-2.5 rounded-2xl shadow-xl flex items-center justify-around gap-2 transition-all duration-300">
-            <!-- Dynamically populated per room -->
         </div>
     </main>
 
@@ -194,10 +177,9 @@
         </div>
     </nav>
 
-    <!-- SHOP MODAL (TOKO) -->
+    <!-- SHOP MODAL -->
     <div id="shopModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-3xl w-full max-w-md shadow-2xl overflow-hidden flex flex-col max-h-[85vh] border-2 border-slate-100">
-            <!-- Shop Header -->
             <div class="bg-gradient-to-r from-emerald-500 to-teal-600 p-4 text-white flex items-center justify-between">
                 <div class="flex items-center gap-2">
                     <span class="text-2xl">🛒</span>
@@ -209,21 +191,18 @@
                 <button id="closeShopBtn" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white font-bold flex items-center justify-center transition">✕</button>
             </div>
 
-            <!-- Shop Navigation Tabs -->
             <div class="flex border-b border-slate-200 bg-slate-50">
                 <button data-shoptab="food" class="shop-tab active flex-1 py-2.5 text-center font-bold text-xs border-b-2 border-emerald-500 text-emerald-600">🍎 Makanan</button>
                 <button data-shoptab="colors" class="shop-tab flex-1 py-2.5 text-center font-bold text-xs text-slate-500 hover:text-slate-700">🎨 Warna</button>
                 <button data-shoptab="hats" class="shop-tab flex-1 py-2.5 text-center font-bold text-xs text-slate-500 hover:text-slate-700">🎩 Topi</button>
             </div>
 
-            <!-- Shop Items Grid -->
             <div id="shopGrid" class="p-4 overflow-y-auto grid grid-cols-2 gap-3 flex-1">
-                <!-- Dynamically injected items -->
             </div>
         </div>
     </div>
 
-    <!-- WARDROBE MODAL (LEMARI) -->
+    <!-- WARDROBE MODAL -->
     <div id="wardrobeModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-3xl w-full max-w-md shadow-2xl overflow-hidden flex flex-col max-h-[80vh]">
             <div class="bg-indigo-600 p-4 text-white flex items-center justify-between">
@@ -238,15 +217,13 @@
             </div>
 
             <div id="wardrobeContainer" class="p-4 overflow-y-auto flex-1 space-y-4">
-                <!-- Dynamically injected wardrobe items -->
             </div>
         </div>
     </div>
 
-    <!-- MINI-GAME OVERLAY (TANGKAP MAKANAN) -->
+    <!-- MINI-GAME OVERLAY -->
     <div id="miniGameModal" class="fixed inset-0 bg-slate-950/90 z-50 flex flex-col items-center justify-center p-3 hidden">
         <div class="w-full max-w-md bg-slate-900 rounded-3xl border-2 border-indigo-500/40 p-3 flex flex-col items-center relative overflow-hidden shadow-2xl">
-            <!-- Game HUD -->
             <div class="w-full flex items-center justify-between mb-2 px-2 text-white font-bold">
                 <div class="flex items-center gap-2">
                     <span class="text-sm text-indigo-300">Skor:</span>
@@ -259,17 +236,14 @@
                 <button id="exitGameBtn" class="px-3 py-1 bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold rounded-xl transition">Keluar</button>
             </div>
 
-            <!-- Mini Game Canvas -->
             <canvas id="miniGameCanvas" class="w-full h-80 bg-slate-800 rounded-2xl border border-white/10 touch-none"></canvas>
 
             <p class="text-xs text-slate-400 mt-2 text-center">Geser / Gerakkan Pou ke kiri & kanan untuk menangkap makanan! Hindari Bom 💣!</p>
         </div>
     </div>
 
-
     <!-- JAVASCRIPT GAME LOGIC -->
     <script>
-        /* --- Web Audio API Sound Synthesizer --- */
         class SoundEngine {
             constructor() {
                 this.ctx = null;
@@ -290,16 +264,13 @@
                 if (!this.enabled) return;
                 this.init();
                 if (!this.ctx) return;
-
                 const osc = this.ctx.createOscillator();
                 const gain = this.ctx.createGain();
                 osc.type = 'sine';
                 osc.frequency.setValueAtTime(600, this.ctx.currentTime);
                 osc.frequency.exponentialRampToValueAtTime(1200, this.ctx.currentTime + 0.12);
-
                 gain.gain.setValueAtTime(0.2, this.ctx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.12);
-
                 osc.connect(gain);
                 gain.connect(this.ctx.destination);
                 osc.start();
@@ -310,17 +281,14 @@
                 if (!this.enabled) return;
                 this.init();
                 if (!this.ctx) return;
-
                 const osc = this.ctx.createOscillator();
                 const gain = this.ctx.createGain();
                 osc.type = 'triangle';
                 osc.frequency.setValueAtTime(250, this.ctx.currentTime);
                 osc.frequency.setValueAtTime(350, this.ctx.currentTime + 0.05);
                 osc.frequency.setValueAtTime(180, this.ctx.currentTime + 0.1);
-
                 gain.gain.setValueAtTime(0.25, this.ctx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.15);
-
                 osc.connect(gain);
                 gain.connect(this.ctx.destination);
                 osc.start();
@@ -331,16 +299,13 @@
                 if (!this.enabled) return;
                 this.init();
                 if (!this.ctx) return;
-
                 const osc = this.ctx.createOscillator();
                 const gain = this.ctx.createGain();
                 osc.type = 'sine';
                 osc.frequency.setValueAtTime(400 + Math.random() * 400, this.ctx.currentTime);
                 osc.frequency.exponentialRampToValueAtTime(800 + Math.random() * 200, this.ctx.currentTime + 0.08);
-
                 gain.gain.setValueAtTime(0.15, this.ctx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.08);
-
                 osc.connect(gain);
                 gain.connect(this.ctx.destination);
                 osc.start();
@@ -351,18 +316,14 @@
                 if (!this.enabled) return;
                 this.init();
                 if (!this.ctx) return;
-
                 const now = this.ctx.currentTime;
                 const osc = this.ctx.createOscillator();
                 const gain = this.ctx.createGain();
-
                 osc.type = 'sine';
-                osc.frequency.setValueAtTime(987.77, now); // B5
-                osc.frequency.setValueAtTime(1318.51, now + 0.08); // E6
-
+                osc.frequency.setValueAtTime(987.77, now);
+                osc.frequency.setValueAtTime(1318.51, now + 0.08);
                 gain.gain.setValueAtTime(0.2, now);
                 gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
-
                 osc.connect(gain);
                 gain.connect(this.ctx.destination);
                 osc.start();
@@ -373,9 +334,8 @@
                 if (!this.enabled) return;
                 this.init();
                 if (!this.ctx) return;
-
                 const now = this.ctx.currentTime;
-                const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+                const notes = [523.25, 659.25, 783.99, 1046.50];
                 notes.forEach((freq, idx) => {
                     const osc = this.ctx.createOscillator();
                     const gain = this.ctx.createGain();
@@ -394,16 +354,13 @@
                 if (!this.enabled) return;
                 this.init();
                 if (!this.ctx) return;
-
                 const osc = this.ctx.createOscillator();
                 const gain = this.ctx.createGain();
                 osc.type = 'sine';
                 osc.frequency.setValueAtTime(150, this.ctx.currentTime);
                 osc.frequency.exponentialRampToValueAtTime(450, this.ctx.currentTime + 0.18);
-
                 gain.gain.setValueAtTime(0.2, this.ctx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.18);
-
                 osc.connect(gain);
                 gain.connect(this.ctx.destination);
                 osc.start();
@@ -413,7 +370,6 @@
 
         const sounds = new SoundEngine();
 
-        /* --- Items Catalog --- */
         const CATALOG = {
             food: [
                 { id: 'apple', name: 'Apel', icon: '🍎', price: 10, hunger: 15, exp: 5 },
@@ -440,7 +396,6 @@
             ]
         };
 
-        /* --- Application State --- */
         const defaultState = {
             stats: { hunger: 85, energy: 90, cleanliness: 75, fun: 80 },
             coins: 150,
@@ -457,7 +412,7 @@
                 hat: 'none'
             },
             isLampOff: false,
-            poopPiles: [] // array of {x, y, id}
+            poopPiles: []
         };
 
         let state = JSON.parse(localStorage.getItem('pou_game_state')) || defaultState;
@@ -466,7 +421,6 @@
             localStorage.setItem('pou_game_state', JSON.stringify(state));
         }
 
-        /* --- Canvas & Animation setup --- */
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
         let width = 0, height = 0;
@@ -483,10 +437,9 @@
 
         window.addEventListener('resize', resizeCanvas);
 
-        /* --- Dragging & Interactive Physics State --- */
         const drag = {
             active: false,
-            type: null, // 'food' | 'soap' | 'shower' | 'ball'
+            type: null,
             itemId: null,
             x: 0,
             y: 0,
@@ -509,25 +462,20 @@
             squishX: 1,
             squishY: 1,
             chewTimer: 0,
-            suds: [], // soapy bubbles on pou {x, y, size}
-            dirt: 0, // calculated from 100 - cleanliness
-            particles: [] // floating particles {x, y, vx, vy, life, text/color}
+            suds: [],
+            dirt: 0,
+            particles: []
         };
-
-        /* --- Render Loop Helper Functions --- */
-        function lerp(a, b, t) { return a + (b - a) * t; }
 
         function drawBackground() {
             ctx.save();
             if (state.room === 'kitchen') {
-                // Kitchen Gradient & Tiles
                 const grad = ctx.createLinearGradient(0, 0, 0, height);
                 grad.addColorStop(0, '#fef3c7');
                 grad.addColorStop(1, '#fde68a');
                 ctx.fillStyle = grad;
                 ctx.fillRect(0, 0, width, height);
 
-                // Tile Lines
                 ctx.strokeStyle = 'rgba(217, 119, 6, 0.15)';
                 ctx.lineWidth = 2;
                 const tileSize = 40;
@@ -538,20 +486,17 @@
                     ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
                 }
 
-                // Table at bottom
                 ctx.fillStyle = '#b45309';
                 ctx.fillRect(0, height - 70, width, 70);
                 ctx.fillStyle = '#d97706';
                 ctx.fillRect(0, height - 70, width, 12);
             } else if (state.room === 'bathroom') {
-                // Bathroom Fresh Aqua Gradient
                 const grad = ctx.createLinearGradient(0, 0, 0, height);
                 grad.addColorStop(0, '#e0f2fe');
                 grad.addColorStop(1, '#bae6fd');
                 ctx.fillStyle = grad;
                 ctx.fillRect(0, 0, width, height);
 
-                // Bubbles pattern background
                 ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
                 for (let i = 0; i < 6; i++) {
                     const bx = (width * 0.2 * i + Date.now() * 0.02) % width;
@@ -561,22 +506,18 @@
                     ctx.fill();
                 }
 
-                // Bathroom Floor
                 ctx.fillStyle = '#0284c7';
                 ctx.fillRect(0, height - 60, width, 60);
                 ctx.fillStyle = '#38bdf8';
                 ctx.fillRect(0, height - 60, width, 10);
             } else if (state.room === 'bedroom') {
-                // Bedroom (Light / Dark mode)
                 if (state.isLampOff) {
-                    // Dark night
                     const grad = ctx.createLinearGradient(0, 0, 0, height);
                     grad.addColorStop(0, '#0f172a');
                     grad.addColorStop(1, '#1e1b4b');
                     ctx.fillStyle = grad;
                     ctx.fillRect(0, 0, width, height);
 
-                    // Stars
                     ctx.fillStyle = '#fef08a';
                     for (let i = 0; i < 15; i++) {
                         const sx = (i * 37) % width;
@@ -586,7 +527,6 @@
                         ctx.fill();
                     }
                 } else {
-                    // Daytime bedroom
                     const grad = ctx.createLinearGradient(0, 0, 0, height);
                     grad.addColorStop(0, '#f3e8ff');
                     grad.addColorStop(1, '#e9d5ff');
@@ -594,20 +534,17 @@
                     ctx.fillRect(0, 0, width, height);
                 }
 
-                // Cozy Carpet Floor
                 ctx.fillStyle = state.isLampOff ? '#312e81' : '#a855f7';
                 ctx.fillRect(0, height - 60, width, 60);
                 ctx.fillStyle = state.isLampOff ? '#4338ca' : '#c084fc';
                 ctx.fillRect(0, height - 60, width, 10);
             } else if (state.room === 'playroom') {
-                // Playroom Pastel Green
                 const grad = ctx.createLinearGradient(0, 0, 0, height);
                 grad.addColorStop(0, '#f0fdf4');
                 grad.addColorStop(1, '#dcfce7');
                 ctx.fillStyle = grad;
                 ctx.fillRect(0, 0, width, height);
 
-                // Playroom Ground
                 ctx.fillStyle = '#22c55e';
                 ctx.fillRect(0, height - 60, width, 60);
                 ctx.fillStyle = '#4ade80';
@@ -616,13 +553,11 @@
             ctx.restore();
         }
 
-        /* --- Main Pou Character Renderer --- */
         function drawPou(cx, cy, radius) {
             ctx.save();
             ctx.translate(cx, cy + pouAnim.bounceY);
             ctx.scale(pouAnim.squishX, pouAnim.squishY);
 
-            // Pou Blob Path (Classic triangle-ish rounded body shape)
             ctx.beginPath();
             const topY = -radius * 0.95;
             const bottomY = radius * 0.9;
@@ -635,187 +570,85 @@
             ctx.bezierCurveTo(leftX, -radius * 0.2, -radius * 0.7, topY, 0, topY);
             ctx.closePath();
 
-            // Pou Shadow
             ctx.shadowColor = 'rgba(0, 0, 0, 0.25)';
             ctx.shadowBlur = 18;
             ctx.shadowOffsetY = 12;
 
-            // Fill Body Color
             ctx.fillStyle = state.equipped.color;
             ctx.fill();
-            ctx.shadowBlur = 0; // reset shadow
+            ctx.shadowColor = 'transparent';
 
-            // Dirt Patches (if cleanliness is low)
-            const dirtiness = 100 - state.stats.cleanliness;
-            if (dirtiness > 15) {
-                ctx.fillStyle = 'rgba(120, 70, 20, 0.35)';
+            ctx.strokeStyle = '#334155';
+            ctx.lineWidth = 4;
+            ctx.stroke();
+
+            // Eyes
+            const eyeOffsetX = radius * 0.35;
+            const eyeOffsetY = -radius * 0.15;
+            const eyeRadius = radius * 0.22;
+
+            [ -eyeOffsetX, eyeOffsetX ].forEach(ex => {
+                ctx.fillStyle = 'white';
                 ctx.beginPath();
-                ctx.arc(-radius * 0.4, radius * 0.2, radius * 0.25, 0, Math.PI * 2);
-                ctx.arc(radius * 0.5, -radius * 0.1, radius * 0.18, 0, Math.PI * 2);
-                ctx.arc(0, radius * 0.5, radius * 0.22, 0, Math.PI * 2);
+                ctx.arc(ex, eyeOffsetY, eyeRadius, 0, Math.PI * 2);
                 ctx.fill();
-            }
-
-            // Blush Cheeks
-            ctx.fillStyle = 'rgba(251, 113, 133, 0.5)';
-            ctx.beginPath();
-            ctx.arc(-radius * 0.55, radius * 0.1, radius * 0.18, 0, Math.PI * 2);
-            ctx.arc(radius * 0.55, radius * 0.1, radius * 0.18, 0, Math.PI * 2);
-            ctx.fill();
-
-            // --- Eyes Mechanics ---
-            const eyeSpacing = radius * 0.42;
-            const eyeY = -radius * 0.15;
-            const eyeR = radius * 0.24;
-
-            const drawEye = (ex) => {
-                ctx.save();
-                // Eye Socket
-                ctx.fillStyle = '#ffffff';
-                ctx.beginPath();
-                ctx.arc(ex, eyeY, eyeR, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.strokeStyle = 'rgba(0,0,0,0.1)';
-                ctx.lineWidth = 2;
+                ctx.strokeStyle = '#334155';
+                ctx.lineWidth = 3;
                 ctx.stroke();
 
+                // Pupil
+                ctx.fillStyle = '#0f172a';
+                ctx.beginPath();
                 if (state.isLampOff) {
-                    // Closed Sleepy Eye Lines
-                    ctx.strokeStyle = '#334155';
-                    ctx.lineWidth = 3.5;
-                    ctx.lineCap = 'round';
-                    ctx.beginPath();
-                    ctx.arc(ex, eyeY + 2, eyeR * 0.6, 0.2 * Math.PI, 0.8 * Math.PI);
-                    ctx.stroke();
+                    ctx.arc(ex, eyeOffsetY, eyeRadius * 0.3, 0, Math.PI * 2);
                 } else {
-                    // Pupil tracking mouse/touch
-                    let lookDx = (drag.x - (cx + ex)) * 0.05;
-                    let lookDy = (drag.y - (cy + eyeY)) * 0.05;
-                    const maxLook = eyeR * 0.45;
-                    const dist = Math.hypot(lookDx, lookDy);
-                    if (dist > maxLook) {
-                        lookDx = (lookDx / dist) * maxLook;
-                        lookDy = (lookDy / dist) * maxLook;
-                    }
-
-                    // Iris
-                    ctx.fillStyle = '#1e293b';
-                    ctx.beginPath();
-                    ctx.arc(ex + lookDx, eyeY + lookDy, eyeR * 0.5, 0, Math.PI * 2);
-                    ctx.fill();
-
-                    // White Glint
-                    ctx.fillStyle = '#ffffff';
-                    ctx.beginPath();
-                    ctx.arc(ex + lookDx - eyeR * 0.15, eyeY + lookDy - eyeR * 0.15, eyeR * 0.18, 0, Math.PI * 2);
-                    ctx.fill();
+                    ctx.arc(ex + 1, eyeOffsetY + 1, eyeRadius * 0.45, 0, Math.PI * 2);
                 }
-                ctx.restore();
-            };
+                ctx.fill();
 
-            drawEye(-eyeSpacing);
-            drawEye(eyeSpacing);
+                // Pupil Catchlight
+                ctx.fillStyle = 'white';
+                ctx.beginPath();
+                ctx.arc(ex - 2, eyeOffsetY - 2, eyeRadius * 0.15, 0, Math.PI * 2);
+                ctx.fill();
+            });
 
-            // --- Mouth Mechanics ---
-            ctx.save();
+            // Mouth
             ctx.strokeStyle = '#334155';
-            ctx.fillStyle = '#9f1239';
-            ctx.lineWidth = 4;
-            ctx.lineCap = 'round';
-
-            const mouthY = radius * 0.32;
+            ctx.lineWidth = 3.5;
+            ctx.beginPath();
 
             if (pouAnim.chewTimer > 0) {
-                // Chewing Mouth Animation Frame
-                ctx.beginPath();
-                const chewW = 20 + Math.sin(Date.now() * 0.03) * 8;
-                const chewH = 15 + Math.cos(Date.now() * 0.03) * 6;
-                ctx.ellipse(0, mouthY, chewW, chewH, 0, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.stroke();
-            } else if (state.isLampOff) {
-                // Sleeping Mouth 'o'
-                ctx.beginPath();
-                ctx.arc(0, mouthY, 6, 0, Math.PI * 2);
-                ctx.stroke();
-            } else if (state.stats.hunger < 30 || state.stats.cleanliness < 30) {
-                // Sad Mouth
-                ctx.beginPath();
-                ctx.arc(0, mouthY + 12, 18, 1.25 * Math.PI, 1.75 * Math.PI);
-                ctx.stroke();
-            } else {
-                // Happy Mouth Curve
-                ctx.beginPath();
-                ctx.arc(0, mouthY - 4, 20, 0.2 * Math.PI, 0.8 * Math.PI);
-                ctx.stroke();
-            }
-            ctx.restore();
-
-            // --- Equipped Accessories ---
-            // Nightcap when sleeping
-            if (state.isLampOff) {
-                ctx.save();
-                ctx.translate(0, -radius * 0.85);
-                ctx.fillStyle = '#6366f1';
-                ctx.beginPath();
-                ctx.moveTo(-radius * 0.6, 0);
-                ctx.quadraticCurveTo(-radius * 0.8, -radius * 0.8, 0, -radius * 0.9);
-                ctx.quadraticCurveTo(radius * 0.6, 0, radius * 0.6, 0);
-                ctx.closePath();
-                ctx.fill();
-                // Star on nightcap
-                ctx.fillStyle = '#facc15';
-                ctx.beginPath(); ctx.arc(-radius * 0.2, -radius * 0.4, 5, 0, Math.PI * 2); ctx.fill();
-                ctx.restore();
-            } else if (state.equipped.hat === 'crown') {
-                // Crown
-                ctx.save();
-                ctx.translate(0, -radius * 0.95);
-                ctx.fillStyle = '#facc15';
-                ctx.beginPath();
-                ctx.moveTo(-25, 0);
-                ctx.lineTo(-30, -28);
-                ctx.lineTo(-10, -15);
-                ctx.lineTo(0, -32);
-                ctx.lineTo(10, -15);
-                ctx.lineTo(30, -28);
-                ctx.lineTo(25, 0);
-                ctx.closePath();
-                ctx.fill();
-                ctx.restore();
-            } else if (state.equipped.hat === 'cap') {
-                // Cap
-                ctx.save();
-                ctx.translate(0, -radius * 0.85);
-                ctx.fillStyle = '#ef4444';
-                ctx.beginPath();
-                ctx.arc(0, 0, radius * 0.65, Math.PI, 0);
-                ctx.fill();
-                ctx.fillRect(-radius * 0.8, -4, radius * 1.6, 8);
-                ctx.restore();
-            } else if (state.equipped.hat === 'party') {
-                // Party Hat
-                ctx.save();
-                ctx.translate(0, -radius * 0.9);
-                ctx.fillStyle = '#a855f7';
-                ctx.beginPath();
-                ctx.moveTo(-20, 0); ctx.lineTo(0, -45); ctx.lineTo(20, 0);
-                ctx.closePath(); ctx.fill();
+                ctx.ellipse(0, radius * 0.25, 12, 8, 0, 0, Math.PI * 2);
                 ctx.fillStyle = '#f43f5e';
-                ctx.beginPath(); ctx.arc(0, -45, 6, 0, Math.PI * 2); ctx.fill();
-                ctx.restore();
+                ctx.fill();
+            } else if (state.stats.hunger < 30 || state.stats.cleanliness < 30) {
+                ctx.arc(0, radius * 0.4, 14, Math.PI * 1.1, Math.PI * 1.9, true);
+            } else {
+                ctx.arc(0, radius * 0.18, 14, 0.1 * Math.PI, 0.9 * Math.PI, false);
+            }
+            ctx.stroke();
+
+            // Hat Overlay
+            if (state.equipped.hat === 'crown') {
+                ctx.font = `${radius * 0.8}px serif`;
+                ctx.textAlign = 'center';
+                ctx.fillText('👑', 0, -radius * 0.75);
+            } else if (state.equipped.hat === 'cap') {
+                ctx.font = `${radius * 0.8}px serif`;
+                ctx.textAlign = 'center';
+                ctx.fillText('🧢', 0, -radius * 0.75);
+            } else if (state.equipped.hat === 'party') {
+                ctx.font = `${radius * 0.8}px serif`;
+                ctx.textAlign = 'center';
+                ctx.fillText('🎉', 0, -radius * 0.75);
             } else if (state.equipped.hat === 'glasses') {
-                // Sunglasses
-                ctx.save();
-                ctx.translate(0, eyeY);
-                ctx.fillStyle = '#0f172a';
-                ctx.fillRect(-eyeSpacing - eyeR * 1.1, -eyeR * 0.7, eyeR * 2.2, eyeR * 1.4);
-                ctx.fillRect(eyeSpacing - eyeR * 1.1, -eyeR * 0.7, eyeR * 2.2, eyeR * 1.4);
-                ctx.fillRect(-eyeSpacing, -2, eyeSpacing * 2, 4);
-                ctx.restore();
+                ctx.font = `${radius * 0.7}px serif`;
+                ctx.textAlign = 'center';
+                ctx.fillText('🕶️', 0, -radius * 0.1);
             }
 
-            // --- Soapy Foam Suds on Pou Body ---
+            // Soap suds overlay
             pouAnim.suds.forEach(sud => {
                 ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
                 ctx.beginPath();
@@ -826,820 +659,316 @@
             ctx.restore();
         }
 
-        /* --- Poop Renderer --- */
-        function drawPoop(p) {
-            ctx.save();
-            ctx.translate(p.x, p.y);
-            ctx.fillStyle = '#78350f';
-
-            // Coiled Poop Shape
-            ctx.beginPath();
-            ctx.arc(0, 8, 16, 0, Math.PI * 2);
-            ctx.arc(0, -2, 12, 0, Math.PI * 2);
-            ctx.arc(0, -10, 8, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Eyes on Poop
-            ctx.fillStyle = '#ffffff';
-            ctx.beginPath(); ctx.arc(-4, -2, 3, 0, Math.PI * 2); ctx.arc(4, -2, 3, 0, Math.PI * 2); ctx.fill();
-            ctx.fillStyle = '#000000';
-            ctx.beginPath(); ctx.arc(-4, -2, 1.5, 0, Math.PI * 2); ctx.arc(4, -2, 1.5, 0, Math.PI * 2); ctx.fill();
-
-            ctx.restore();
-        }
-
-        /* --- Particles Render & Update --- */
-        function spawnParticle(x, y, text, color = '#f43f5e') {
-            pouAnim.particles.push({
-                x, y,
-                vx: (Math.random() - 0.5) * 2,
-                vy: -2 - Math.random() * 2,
-                life: 1.0,
-                text,
-                color
-            });
-        }
-
-        function updateAndDrawParticles() {
-            for (let i = pouAnim.particles.length - 1; i >= 0; i--) {
-                const p = pouAnim.particles[i];
-                p.x += p.vx;
-                p.y += p.vy;
-                p.life -= 0.02;
-
-                ctx.save();
-                ctx.globalAlpha = Math.max(0, p.life);
-                ctx.fillStyle = p.color;
-                ctx.font = 'bold 20px Fredoka, sans-serif';
-                ctx.fillText(p.text, p.x, p.y);
-                ctx.restore();
-
-                if (p.life <= 0) pouAnim.particles.splice(i, 1);
-            }
-        }
-
-        /* --- Main Animation Loop --- */
-        function gameLoop() {
-            ctx.clearRect(0, 0, width, height);
-
-            // 1. Draw Environment / Room
-            drawBackground();
-
-            // Pou Position Parameters
-            const pouX = width / 2;
-            const pouY = height / 2 + 20;
-            const pouRadius = Math.min(width, height) * 0.22;
-
-            // Update Pou Bounce Physics
-            pouAnim.bounceY += pouAnim.bounceVy;
-            pouAnim.bounceVy += 0.8; // gravity
-            if (pouAnim.bounceY > 0) {
-                pouAnim.bounceY = 0;
-                pouAnim.bounceVy = 0;
-            }
-            pouAnim.squishX = lerp(pouAnim.squishX, 1, 0.1);
-            pouAnim.squishY = lerp(pouAnim.squishY, 1, 0.1);
-
-            if (pouAnim.chewTimer > 0) pouAnim.chewTimer--;
-
-            // 2. Draw Poop Piles
-            state.poopPiles.forEach(drawPoop);
-
-            // 3. Draw Main Pou Character
-            drawPou(pouX, pouY, pouRadius);
-
-            // 4. Room Specific Tools / Interactions
-            if (state.room === 'playroom') {
-                // Initialize ball position if not set
-                if (ball.x === 0) { ball.x = width * 0.75; ball.y = height - 90; }
-
-                // Ball Physics
-                if (!ball.isDragging) {
-                    ball.vy += 0.6; // gravity
-                    ball.x += ball.vx;
-                    ball.y += ball.vy;
-                    ball.vx *= 0.98; // friction
-
-                    // Floor collision
-                    if (ball.y > height - 60 - ball.radius) {
-                        ball.y = height - 60 - ball.radius;
-                        ball.vy = -ball.vy * 0.65;
-                        if (Math.abs(ball.vy) < 1) ball.vy = 0;
-                    }
-                    // Wall collision
-                    if (ball.x < ball.radius || ball.x > width - ball.radius) {
-                        ball.vx = -ball.vx * 0.8;
-                        ball.x = Math.max(ball.radius, Math.min(width - ball.radius, ball.x));
-                    }
-                }
-
-                // Draw Physics Ball
-                ctx.save();
-                ctx.translate(ball.x, ball.y);
-                ctx.beginPath();
-                ctx.arc(0, 0, ball.radius, 0, Math.PI * 2);
-                ctx.fillStyle = '#ef4444';
-                ctx.fill();
-                ctx.lineWidth = 3; ctx.strokeStyle = '#ffffff'; ctx.stroke();
-                // Star pattern on ball
-                ctx.fillStyle = '#ffffff';
-                ctx.beginPath(); ctx.arc(0, 0, 8, 0, Math.PI * 2); ctx.fill();
-                ctx.restore();
-            }
-
-            // 5. Draw Active Dragging Tools (Food, Soap, Shower head)
-            if (drag.active) {
-                ctx.save();
-                ctx.translate(drag.x, drag.y);
-
-                if (drag.type === 'food') {
-                    const item = CATALOG.food.find(f => f.id === drag.itemId);
-                    if (item) {
-                        ctx.font = '42px sans-serif';
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'middle';
-                        ctx.fillText(item.icon, 0, 0);
-                    }
-                } else if (drag.type === 'soap') {
-                    // Soap Bar
-                    ctx.fillStyle = '#38bdf8';
-                    ctx.beginPath();
-                    ctx.roundRect(-25, -15, 50, 30, 10);
-                    ctx.fill();
-                    ctx.fillStyle = '#ffffff';
-                    ctx.font = '12px Fredoka';
-                    ctx.fillText('SABUN', -18, 4);
-
-                    // Check collision with Pou to make suds
-                    const distToPou = Math.hypot(drag.x - pouX, drag.y - pouY);
-                    if (distToPou < pouRadius * 0.9) {
-                        if (Math.random() < 0.4) {
-                            pouAnim.suds.push({
-                                x: (drag.x - pouX) + (Math.random() - 0.5) * 20,
-                                y: (drag.y - pouY) + (Math.random() - 0.5) * 20,
-                                size: 8 + Math.random() * 8
-                            });
-                            sounds.playBubble();
-                        }
-                    }
-                } else if (drag.type === 'shower') {
-                    // Shower Head & Water Stream
-                    ctx.fillStyle = '#94a3b8';
-                    ctx.fillRect(-12, -25, 24, 15);
-                    ctx.fillStyle = '#64748b';
-                    ctx.fillRect(-18, -10, 36, 10);
-
-                    // Water Spray Particles
-                    ctx.fillStyle = '#38bdf8';
-                    for (let i = 0; i < 8; i++) {
-                        const wx = (Math.random() - 0.5) * 28;
-                        const wy = 10 + Math.random() * 40;
-                        ctx.beginPath();
-                        ctx.arc(wx, wy, 3, 0, Math.PI * 2);
-                        ctx.fill();
-
-                        // Clean suds near water spray
-                        const worldWx = drag.x + wx;
-                        const worldWy = drag.y + wy;
-                        const localX = worldWx - pouX;
-                        const localY = worldWy - pouY;
-
-                        pouAnim.suds = pouAnim.suds.filter(sud => {
-                            const dist = Math.hypot(sud.x - localX, sud.y - localY);
-                            if (dist < 25) {
-                                state.stats.cleanliness = Math.min(100, state.stats.cleanliness + 0.5);
-                                updateUI();
-                                return false;
-                            }
-                            return true;
-                        });
-                    }
-                }
-
-                ctx.restore();
-            }
-
-            // 6. Floating Zzz during sleep
-            if (state.isLampOff && Math.random() < 0.05) {
-                spawnParticle(pouX + (Math.random() - 0.5) * 40, pouY - 50, 'Zzz', '#a5b4fc');
-                state.stats.energy = Math.min(100, state.stats.energy + 0.3);
-                updateUI();
-            }
-
-            // Render particles
-            updateAndDrawParticles();
-
-            requestAnimationFrame(gameLoop);
-        }
-
-        /* --- User Pointer / Touch Event Listeners --- */
-        function getCanvasCoords(e) {
-            const rect = canvas.getBoundingClientRect();
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            return {
-                x: clientX - rect.left,
-                y: clientY - rect.top
-            };
-        }
-
-        function handlePointerDown(e) {
-            const coords = getCanvasCoords(e);
-            drag.x = coords.x;
-            drag.y = coords.y;
-
-            const pouX = width / 2;
-            const pouY = height / 2 + 20;
-            const pouRadius = Math.min(width, height) * 0.22;
-
-            // Check Poop click
-            for (let i = state.poopPiles.length - 1; i >= 0; i--) {
-                const p = state.poopPiles[i];
-                if (Math.hypot(coords.x - p.x, coords.y - p.y) < 25) {
-                    state.poopPiles.splice(i, 1);
-                    state.stats.cleanliness = Math.min(100, state.stats.cleanliness + 15);
-                    state.coins += 5;
-                    sounds.playCoin();
-                    spawnParticle(p.x, p.y, '+5 🪙', '#facc15');
-                    saveState();
-                    updateUI();
-                    return;
-                }
-            }
-
-            // Check Ball Drag in Playroom
-            if (state.room === 'playroom') {
-                if (Math.hypot(coords.x - ball.x, coords.y - ball.y) < ball.radius * 1.5) {
-                    ball.isDragging = true;
-                    drag.active = true;
-                    drag.type = 'ball';
-                    return;
-                }
-            }
-
-            // Check Petting Pou
-            if (Math.hypot(coords.x - pouX, coords.y - pouY) < pouRadius) {
-                pouAnim.bounceVy = -10;
-                pouAnim.squishX = 1.25;
-                pouAnim.squishY = 0.8;
-                sounds.playSqueak();
-                spawnParticle(coords.x, coords.y - 20, '❤️', '#f43f5e');
-
-                // Petting boosts Fun
-                state.stats.fun = Math.min(100, state.stats.fun + 4);
-                addXP(2);
-                updateUI();
-            }
-        }
-
-        function handlePointerMove(e) {
-            if (!drag.active && !ball.isDragging) return;
-            const coords = getCanvasCoords(e);
-
-            if (ball.isDragging) {
-                ball.vx = coords.x - ball.x;
-                ball.vy = coords.y - ball.y;
-                ball.x = coords.x;
-                ball.y = coords.y;
-            } else if (drag.active) {
-                drag.x = coords.x;
-                drag.y = coords.y;
-
-                // Check Feeding Pou
-                if (drag.type === 'food') {
-                    const pouX = width / 2;
-                    const pouY = height / 2 + 20;
-                    const pouRadius = Math.min(width, height) * 0.22;
-
-                    if (Math.hypot(drag.x - pouX, drag.y - pouY) < pouRadius * 0.8) {
-                        const foodItem = CATALOG.food.find(f => f.id === drag.itemId);
-                        if (foodItem && state.inventory.food[foodItem.id] > 0) {
-                            state.inventory.food[foodItem.id]--;
-                            state.stats.hunger = Math.min(100, state.stats.hunger + foodItem.hunger);
-                            pouAnim.chewTimer = 35;
-                            sounds.playEat();
-                            spawnParticle(pouX, pouY - 30, `+${foodItem.hunger} 🍖`, '#f59e0b');
-                            addXP(foodItem.exp);
-
-                            // Poop chance if full
-                            if (state.stats.hunger > 90 && Math.random() < 0.4) {
-                                state.poopPiles.push({
-                                    x: pouX + (Math.random() - 0.5) * (pouRadius * 1.2),
-                                    y: height - 70,
-                                    id: Date.now()
-                                });
-                            }
-
-                            drag.active = false;
-                            updateActivityTray();
-                            updateUI();
-                            saveState();
-                        }
-                    }
-                }
-            }
-        }
-
-        function handlePointerUp() {
-            if (ball.isDragging) {
-                ball.isDragging = false;
-                drag.active = false;
-                sounds.playBoing();
-            } else if (drag.active) {
-                drag.active = false;
-            }
-        }
-
-        canvas.addEventListener('mousedown', handlePointerDown);
-        canvas.addEventListener('mousemove', handlePointerMove);
-        window.addEventListener('mouseup', handlePointerUp);
-
-        canvas.addEventListener('touchstart', (e) => { handlePointerDown(e); e.preventDefault(); }, { passive: false });
-        canvas.addEventListener('touchmove', (e) => { handlePointerMove(e); e.preventDefault(); }, { passive: false });
-        window.addEventListener('touchend', handlePointerUp);
-
-        /* --- Stats Decay & System Timers --- */
-        setInterval(() => {
-            if (!state.isLampOff) {
-                state.stats.hunger = Math.max(0, state.stats.hunger - 0.4);
-                state.stats.energy = Math.max(0, state.stats.energy - 0.3);
-                state.stats.cleanliness = Math.max(0, state.stats.cleanliness - 0.2);
-                state.stats.fun = Math.max(0, state.stats.fun - 0.3);
-            }
-            updateUI();
-            saveState();
-        }, 3000);
-
-        function addXP(amount) {
-            state.xp += amount;
-            const requiredXP = state.level * 50;
-            if (state.xp >= requiredXP) {
-                state.xp -= requiredXP;
-                state.level++;
-                state.coins += 50;
-                sounds.playLevelUp();
-                spawnParticle(width / 2, height / 2 - 60, 'LEVEL UP! 🎉', '#a855f7');
-            }
-            updateUI();
-            saveState();
-        }
-
-        /* --- UI Updates --- */
         function updateUI() {
-            document.getElementById('levelBadge').textContent = state.level;
-            document.getElementById('coinCount').textContent = state.coins;
+            document.getElementById('levelBadge').innerText = state.level;
+            document.getElementById('xpBar').style.width = `${Math.min(100, (state.xp / (state.level * 100)) * 100)}%`;
+            document.getElementById('coinCount').innerText = state.coins;
 
-            // XP Bar
-            const requiredXP = state.level * 50;
-            document.getElementById('xpBar').style.width = `${Math.min(100, (state.xp / requiredXP) * 100)}%`;
+            document.getElementById('hungerVal').innerText = `${Math.round(state.stats.hunger)}%`;
+            document.getElementById('hungerBar').style.width = `${state.stats.hunger}%`;
 
-            // Stat bars
-            const setStat = (idVal, idBar, val) => {
-                const rounded = Math.round(val);
-                document.getElementById(idVal).textContent = `${rounded}%`;
-                document.getElementById(idBar).style.width = `${rounded}%`;
-            };
+            document.getElementById('energyVal').innerText = `${Math.round(state.stats.energy)}%`;
+            document.getElementById('energyBar').style.width = `${state.stats.energy}%`;
 
-            setStat('hungerVal', 'hungerBar', state.stats.hunger);
-            setStat('energyVal', 'energyBar', state.stats.energy);
-            setStat('cleanVal', 'cleanBar', state.stats.cleanliness);
-            setStat('funVal', 'funBar', state.stats.fun);
+            document.getElementById('cleanVal').innerText = `${Math.round(state.stats.cleanliness)}%`;
+            document.getElementById('cleanBar').style.width = `${state.stats.cleanliness}%`;
+
+            document.getElementById('funVal').innerText = `${Math.round(state.stats.fun)}%`;
+            document.getElementById('funBar').style.width = `${state.stats.fun}%`;
+
+            const roomBadge = document.getElementById('roomName');
+            const roomIcon = document.getElementById('roomIcon');
+            if (state.room === 'kitchen') {
+                roomBadge.innerText = 'Dapur'; roomIcon.innerText = '🍽️';
+            } else if (state.room === 'bathroom') {
+                roomBadge.innerText = 'Kamar Mandi'; roomIcon.innerText = '301'; roomIcon.innerText = '🛁';
+            } else if (state.room === 'bedroom') {
+                roomBadge.innerText = 'Kamar Tidur'; roomIcon.innerText = '🛏️';
+            } else if (state.room === 'playroom') {
+                roomBadge.innerText = 'Ruang Bermain'; roomIcon.innerText = '⚽';
+            }
+
+            renderActivityTray();
         }
 
-        function updateRoom(roomName) {
-            state.room = roomName;
-            const titleMap = {
-                kitchen: { name: 'Dapur', icon: '🍽️' },
-                bathroom: { name: 'Kamar Mandi', icon: '🛁' },
-                bedroom: { name: 'Kamar Tidur', icon: '🛏️' },
-                playroom: { name: 'Ruang Bermain', icon: '⚽' }
-            };
-
-            document.getElementById('roomName').textContent = titleMap[roomName].name;
-            document.getElementById('roomIcon').textContent = titleMap[roomName].icon;
-
-            // Highlight Active Room Button
-            document.querySelectorAll('.room-nav-btn').forEach(btn => {
-                if (btn.dataset.room === roomName) {
-                    btn.className = 'room-nav-btn active flex flex-col items-center justify-center py-1.5 px-2 rounded-xl transition font-bold text-xs bg-amber-500 text-white shadow-md';
-                } else {
-                    btn.className = 'room-nav-btn flex flex-col items-center justify-center py-1.5 px-2 rounded-xl transition font-bold text-xs text-slate-600 hover:bg-slate-100';
-                }
-            });
-
-            updateActivityTray();
-            saveState();
-        }
-
-        function updateActivityTray() {
+        function renderActivityTray() {
             const tray = document.getElementById('activityTray');
             tray.innerHTML = '';
 
             if (state.room === 'kitchen') {
-                // Food items carousel
                 CATALOG.food.forEach(item => {
                     const count = state.inventory.food[item.id] || 0;
                     const btn = document.createElement('button');
-                    btn.className = 'relative flex flex-col items-center justify-center p-2 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-200 transition active:scale-95';
-                    btn.innerHTML = `
-                        <span class="text-2xl">${item.icon}</span>
-                        <span class="absolute -top-1.5 -right-1.5 bg-amber-600 text-white text-[10px] font-bold px-1.5 rounded-full shadow">${count}</span>
-                    `;
-                    btn.addEventListener('mousedown', (e) => {
-                        if (count <= 0) {
-                            openShop('food');
-                            return;
+                    btn.className = `flex flex-col items-center justify-center p-2 rounded-xl border transition ${count > 0 ? 'bg-white hover:bg-amber-50 border-amber-200' : 'bg-slate-100 opacity-50'}`;
+                    btn.innerHTML = `<span class="text-2xl">${item.icon}</span><span class="text-[10px] font-bold text-slate-700">x${count}</span>`;
+                    btn.onclick = () => {
+                        if (count > 0) {
+                            drag.active = true;
+                            drag.type = 'food';
+                            drag.itemId = item.id;
+                            drag.x = width / 2;
+                            drag.y = height / 2;
                         }
-                        drag.active = true;
-                        drag.type = 'food';
-                        drag.itemId = item.id;
-                        const coords = getCanvasCoords(e);
-                        drag.x = coords.x; drag.y = coords.y;
-                    });
-                    btn.addEventListener('touchstart', (e) => {
-                        if (count <= 0) { openShop('food'); return; }
-                        drag.active = true;
-                        drag.type = 'food';
-                        drag.itemId = item.id;
-                        const coords = getCanvasCoords(e.touches[0]);
-                        drag.x = coords.x; drag.y = coords.y;
-                    }, { passive: true });
+                    };
                     tray.appendChild(btn);
                 });
             } else if (state.room === 'bathroom') {
-                // Soap & Shower Sprayer
                 const soapBtn = document.createElement('button');
-                soapBtn.className = 'flex items-center gap-1.5 px-3 py-2 bg-sky-500 text-white font-bold text-xs rounded-xl shadow border border-sky-400 active:scale-95';
-                soapBtn.innerHTML = '<span>🧼</span> Sabun';
-                soapBtn.addEventListener('mousedown', (e) => {
-                    drag.active = true; drag.type = 'soap';
-                    const coords = getCanvasCoords(e);
-                    drag.x = coords.x; drag.y = coords.y;
-                });
+                soapBtn.className = 'flex flex-col items-center justify-center p-2 px-4 rounded-xl bg-sky-100 hover:bg-sky-200 border border-sky-300 font-bold text-xs text-sky-800';
+                soapBtn.innerHTML = '<span class="text-2xl">🧼</span><span>Sabun</span>';
+                soapBtn.onclick = () => {
+                    drag.active = true;
+                    drag.type = 'soap';
+                    drag.x = width / 2;
+                    drag.y = height / 2;
+                };
 
                 const showerBtn = document.createElement('button');
-                showerBtn.className = 'flex items-center gap-1.5 px-3 py-2 bg-blue-600 text-white font-bold text-xs rounded-xl shadow border border-blue-500 active:scale-95';
-                showerBtn.innerHTML = '<span>🚿</span> Shower';
-                showerBtn.addEventListener('mousedown', (e) => {
-                    drag.active = true; drag.type = 'shower';
-                    const coords = getCanvasCoords(e);
-                    drag.x = coords.x; drag.y = coords.y;
-                });
+                showerBtn.className = 'flex flex-col items-center justify-center p-2 px-4 rounded-xl bg-blue-100 hover:bg-blue-200 border border-blue-300 font-bold text-xs text-blue-800';
+                showerBtn.innerHTML = '<span class="text-2xl">🚿</span><span>Bilas</span>';
+                showerBtn.onclick = () => {
+                    drag.active = true;
+                    drag.type = 'shower';
+                    drag.x = width / 2;
+                    drag.y = height / 2;
+                };
 
                 tray.appendChild(soapBtn);
                 tray.appendChild(showerBtn);
             } else if (state.room === 'bedroom') {
-                // Lamp Toggle Button
                 const lampBtn = document.createElement('button');
-                lampBtn.className = `flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl shadow transition border ${state.isLampOff ? 'bg-indigo-900 text-indigo-200 border-indigo-700' : 'bg-amber-400 text-amber-900 border-amber-300'}`;
-                lampBtn.innerHTML = `<span>${state.isLampOff ? '🌙' : '💡'}</span> Saklar Lampu (${state.isLampOff ? 'MATI' : 'NYALA'})`;
-                lampBtn.addEventListener('click', () => {
+                lampBtn.className = `flex items-center gap-2 p-2 px-5 rounded-xl font-bold text-xs ${state.isLampOff ? 'bg-amber-400 text-slate-900' : 'bg-slate-700 text-white'}`;
+                lampBtn.innerHTML = `<span>${state.isLampOff ? '💡' : '🌙'}</span><span>${state.isLampOff ? 'Nyalakan Lampu' : 'Matikan Lampu'}</span>`;
+                lampBtn.onclick = () => {
                     state.isLampOff = !state.isLampOff;
                     sounds.playSqueak();
-                    updateActivityTray();
                     saveState();
-                });
+                    updateUI();
+                };
                 tray.appendChild(lampBtn);
             } else if (state.room === 'playroom') {
-                // Play Game Button
                 const gameBtn = document.createElement('button');
-                gameBtn.className = 'w-full py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-xs rounded-xl shadow-md border border-emerald-400 flex items-center justify-center gap-2 active:scale-95';
-                gameBtn.innerHTML = '<span>🎮</span> Main Mini-Game "Tangkap Makanan"';
-                gameBtn.addEventListener('click', startMiniGame);
+                gameBtn.className = 'flex items-center gap-2 p-2 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs shadow-md';
+                gameBtn.innerHTML = '<span>🎮</span><span>Mini Game</span>';
+                gameBtn.onclick = startMiniGame;
+
+                const ballBtn = document.createElement('button');
+                ballBtn.className = 'flex items-center gap-2 p-2 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs shadow-md';
+                ballBtn.innerHTML = '<span>⚽</span><span>Bola</span>';
+                ballBtn.onclick = () => {
+                    ball.x = width / 2;
+                    ball.y = height / 3;
+                    ball.vx = (Math.random() - 0.5) * 10;
+                    ball.vy = -5;
+                };
+
                 tray.appendChild(gameBtn);
+                tray.appendChild(ballBtn);
             }
         }
 
-        /* --- Shop System (Toko) --- */
-        function openShop(tab = 'food') {
-            document.getElementById('shopModal').classList.remove('hidden');
-            renderShopItems(tab);
+        // Main Loop & Interactions
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            drawBackground();
+
+            const pouX = width / 2;
+            const pouY = height / 2 + 20;
+            const pouRadius = Math.min(width, height) * 0.22;
+
+            drawPou(pouX, pouY, pouRadius);
+
+            // Dragged items rendering
+            if (drag.active) {
+                ctx.save();
+                ctx.font = '40px serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                if (drag.type === 'food') {
+                    const item = CATALOG.food.find(f => f.id === drag.itemId);
+                    if (item) ctx.fillText(item.icon, drag.x, drag.y);
+                } else if (drag.type === 'soap') {
+                    ctx.fillText('🧼', drag.x, drag.y);
+                } else if (drag.type === 'shower') {
+                    ctx.fillText('🚿', drag.x, drag.y);
+                    // Water drops
+                    ctx.fillStyle = '#38bdf8';
+                    for (let i = 0; i < 5; i++) {
+                        ctx.beginPath();
+                        ctx.arc(drag.x + (Math.random() - 0.5) * 20, drag.y + 25 + Math.random() * 20, 3, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+                ctx.restore();
+            }
+
+            // Ball Physics in Playroom
+            if (state.room === 'playroom' && (ball.x !== 0 || ball.y !== 0)) {
+                ball.x += ball.vx;
+                ball.y += ball.vy;
+                ball.vy += 0.4; // gravity
+                ball.vx *= 0.98; // friction
+
+                if (ball.y + ball.radius > height - 60) {
+                    ball.y = height - 60 - ball.radius;
+                    ball.vy = -ball.vy * 0.7;
+                }
+                if (ball.x - ball.radius < 0 || ball.x + ball.radius > width) {
+                    ball.vx = -ball.vx;
+                }
+
+                ctx.save();
+                ctx.font = '45px serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('⚽', ball.x, ball.y);
+                ctx.restore();
+            }
+
+            // Stat degradation and sleeping recovery
+            if (state.isLampOff && state.room === 'bedroom') {
+                state.stats.energy = Math.min(100, state.stats.energy + 0.05);
+            } else {
+                state.stats.hunger = Math.max(0, state.stats.hunger - 0.003);
+                state.stats.energy = Math.max(0, state.stats.energy - 0.002);
+                state.stats.cleanliness = Math.max(0, state.stats.cleanliness - 0.002);
+                state.stats.fun = Math.max(0, state.stats.fun - 0.003);
+            }
+
+            if (pouAnim.chewTimer > 0) pouAnim.chewTimer--;
+
+            requestAnimationFrame(animate);
         }
 
-        function closeShop() {
-            document.getElementById('shopModal').classList.add('hidden');
+        // Pointer event listeners for dragging
+        function handlePointerMove(e) {
+            const rect = canvas.getBoundingClientRect();
+            const px = e.clientX - rect.left;
+            const py = e.clientY - rect.top;
+
+            if (drag.active) {
+                drag.x = px;
+                drag.y = py;
+
+                const pouX = width / 2;
+                const pouY = height / 2 + 20;
+                const dist = Math.hypot(px - pouX, py - pouY);
+
+                if (dist < 80) {
+                    if (drag.type === 'food') {
+                        state.inventory.food[drag.itemId]--;
+                        const item = CATALOG.food.find(f => f.id === drag.itemId);
+                        state.stats.hunger = Math.min(100, state.stats.hunger + item.hunger);
+                        state.xp += item.exp;
+                        sounds.playEat();
+                        pouAnim.chewTimer = 30;
+                        drag.active = false;
+                        saveState();
+                        updateUI();
+                    } else if (drag.type === 'soap') {
+                        sounds.playBubble();
+                        if (pouAnim.suds.length < 15) {
+                            pouAnim.suds.push({ x: (px - pouX), y: (py - pouY), size: 8 + Math.random() * 8 });
+                        }
+                    } else if (drag.type === 'shower') {
+                        if (pouAnim.suds.length > 0) {
+                            pouAnim.suds.pop();
+                            state.stats.cleanliness = Math.min(100, state.stats.cleanliness + 3);
+                            sounds.playBubble();
+                            saveState();
+                            updateUI();
+                        }
+                    }
+                }
+            }
         }
 
-        function renderShopItems(tab) {
+        canvas.addEventListener('pointerdown', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const px = e.clientX - rect.left;
+            const py = e.clientY - rect.top;
+            const pouX = width / 2;
+            const pouY = height / 2 + 20;
+
+            if (Math.hypot(px - pouX, py - pouY) < 80) {
+                sounds.playSqueak();
+                pouAnim.bounceY = -15;
+            }
+        });
+
+        window.addEventListener('pointermove', handlePointerMove);
+        window.addEventListener('pointerup', () => { drag.active = false; });
+
+        // Room Navigation Setup
+        document.querySelectorAll('.room-nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.room-nav-btn').forEach(b => {
+                    b.classList.remove('active', 'bg-amber-500', 'text-white', 'shadow-md');
+                    b.classList.add('text-slate-600');
+                });
+                btn.classList.add('active', 'bg-amber-500', 'text-white', 'shadow-md');
+                btn.classList.remove('text-slate-600');
+                state.room = btn.dataset.room;
+                sounds.playSqueak();
+                saveState();
+                updateUI();
+            });
+        });
+
+        // Shop System Setup
+        const shopModal = document.getElementById('shopModal');
+        document.getElementById('shopBtn').onclick = () => {
+            shopModal.classList.remove('hidden');
+            renderShop('food');
+        };
+        document.getElementById('closeShopBtn').onclick = () => shopModal.classList.add('hidden');
+
+        function renderShop(tab) {
             const grid = document.getElementById('shopGrid');
             grid.innerHTML = '';
+            const items = CATALOG[tab];
 
-            document.querySelectorAll('.shop-tab').forEach(t => {
-                if (t.dataset.shoptab === tab) {
-                    t.className = 'shop-tab active flex-1 py-2.5 text-center font-bold text-xs border-b-2 border-emerald-500 text-emerald-600';
-                } else {
-                    t.className = 'shop-tab flex-1 py-2.5 text-center font-bold text-xs text-slate-500 hover:text-slate-700';
-                }
-            });
-
-            if (tab === 'food') {
-                CATALOG.food.forEach(item => {
-                    const card = document.createElement('div');
-                    card.className = 'bg-slate-50 border border-slate-200 p-3 rounded-2xl flex flex-col items-center justify-between shadow-sm';
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-slate-50 p-3 rounded-2xl border border-slate-200 flex flex-col items-center justify-between text-center';
+                if (tab === 'food') {
                     card.innerHTML = `
-                        <span class="text-3xl my-1">${item.icon}</span>
+                        <span class="text-3xl mb-1">${item.icon}</span>
                         <span class="font-bold text-xs text-slate-800">${item.name}</span>
-                        <span class="text-[10px] text-amber-600 font-bold mb-2">+${item.hunger} Lapar</span>
-                        <button class="w-full py-1.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs rounded-xl transition shadow flex items-center justify-center gap-1">
+                        <span class="text-[10px] text-emerald-600 font-bold mb-2">+${item.hunger} Lapar</span>
+                        <button class="w-full py-1.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1">
                             <span>🪙</span> ${item.price}
                         </button>
                     `;
-                    card.querySelector('button').addEventListener('click', () => {
+                    card.querySelector('button').onclick = () => {
                         if (state.coins >= item.price) {
                             state.coins -= item.price;
                             state.inventory.food[item.id] = (state.inventory.food[item.id] || 0) + 1;
                             sounds.playCoin();
+                            saveState();
                             updateUI();
-                            updateActivityTray();
-                            saveState();
-                            renderShopItems('food');
-                        } else {
-                            alert('Koin Anda tidak cukup!');
                         }
-                    });
-                    grid.appendChild(card);
-                });
-            } else if (tab === 'colors') {
-                CATALOG.colors.forEach(item => {
-                    const isOwned = state.inventory.colors.includes(item.hex);
-                    const isEquipped = state.equipped.color === item.hex;
-
-                    const card = document.createElement('div');
-                    card.className = 'bg-slate-50 border border-slate-200 p-3 rounded-2xl flex flex-col items-center justify-between shadow-sm';
-                    card.innerHTML = `
-                        <div class="w-10 h-10 rounded-full border-2 border-white shadow my-1" style="background-color: ${item.hex}"></div>
-                        <span class="font-bold text-xs text-slate-800 mb-2">${item.name}</span>
-                        <button class="w-full py-1.5 ${isEquipped ? 'bg-indigo-600 text-white' : isOwned ? 'bg-slate-600 text-white' : 'bg-emerald-500 text-white'} font-bold text-xs rounded-xl transition shadow">
-                            ${isEquipped ? 'Dipakai' : isOwned ? 'Gunakan' : `🪙 ${item.price}`}
-                        </button>
-                    `;
-                    card.querySelector('button').addEventListener('click', () => {
-                        if (isOwned) {
-                            state.equipped.color = item.hex;
-                            sounds.playSqueak();
-                            saveState();
-                            renderShopItems('colors');
-                        } else if (state.coins >= item.price) {
-                            state.coins -= item.price;
-                            state.inventory.colors.push(item.hex);
-                            state.equipped.color = item.hex;
-                            sounds.playCoin();
-                            updateUI();
-                            saveState();
-                            renderShopItems('colors');
-                        } else {
-                            alert('Koin Anda tidak cukup!');
-                        }
-                    });
-                    grid.appendChild(card);
-                });
-            } else if (tab === 'hats') {
-                CATALOG.hats.forEach(item => {
-                    const isOwned = state.inventory.hats.includes(item.id);
-                    const isEquipped = state.equipped.hat === item.id;
-
-                    const card = document.createElement('div');
-                    card.className = 'bg-slate-50 border border-slate-200 p-3 rounded-2xl flex flex-col items-center justify-between shadow-sm';
-                    card.innerHTML = `
-                        <span class="text-3xl my-1">${item.icon}</span>
-                        <span class="font-bold text-xs text-slate-800 mb-2">${item.name}</span>
-                        <button class="w-full py-1.5 ${isEquipped ? 'bg-indigo-600 text-white' : isOwned ? 'bg-slate-600 text-white' : 'bg-emerald-500 text-white'} font-bold text-xs rounded-xl transition shadow">
-                            ${isEquipped ? 'Dipakai' : isOwned ? 'Gunakan' : `🪙 ${item.price}`}
-                        </button>
-                    `;
-                    card.querySelector('button').addEventListener('click', () => {
-                        if (isOwned) {
-                            state.equipped.hat = item.id;
-                            sounds.playSqueak();
-                            saveState();
-                            renderShopItems('hats');
-                        } else if (state.coins >= item.price) {
-                            state.coins -= item.price;
-                            state.inventory.hats.push(item.id);
-                            state.equipped.hat = item.id;
-                            sounds.playCoin();
-                            updateUI();
-                            saveState();
-                            renderShopItems('hats');
-                        } else {
-                            alert('Koin Anda tidak cukup!');
-                        }
-                    });
-                    grid.appendChild(card);
-                });
-            }
+                    };
+                }
+                grid.appendChild(card);
+            });
         }
 
-        /* --- Wardrobe Modal (Lemari) --- */
-        function openWardrobe() {
-            document.getElementById('wardrobeModal').classList.remove('hidden');
-            const container = document.getElementById('wardrobeContainer');
-            container.innerHTML = '';
-
-            // Color Section
-            const colorSec = document.createElement('div');
-            colorSec.innerHTML = `<h3 class="font-bold text-sm text-slate-700 mb-2">Warna Tubuh Owned:</h3>`;
-            const colorGrid = document.createElement('div');
-            colorGrid.className = 'grid grid-cols-3 gap-2';
-
-            state.inventory.colors.forEach(hex => {
-                const item = CATALOG.colors.find(c => c.hex === hex) || { name: 'Warna', hex };
-                const btn = document.createElement('button');
-                btn.className = `p-2 rounded-xl border flex flex-col items-center ${state.equipped.color === hex ? 'border-indigo-600 bg-indigo-50' : 'border-slate-200'}`;
-                btn.innerHTML = `
-                    <div class="w-8 h-8 rounded-full border shadow mb-1" style="background-color: ${hex}"></div>
-                    <span class="text-[10px] font-bold text-slate-700">${item.name}</span>
-                `;
-                btn.addEventListener('click', () => {
-                    state.equipped.color = hex;
-                    sounds.playSqueak();
-                    saveState();
-                    openWardrobe();
-                });
-                colorGrid.appendChild(btn);
-            });
-            colorSec.appendChild(colorGrid);
-            container.appendChild(colorSec);
-
-            // Hats Section
-            const hatSec = document.createElement('div');
-            hatSec.innerHTML = `<h3 class="font-bold text-sm text-slate-700 my-2">Topi & Aksesoris Owned:</h3>`;
-            const hatGrid = document.createElement('div');
-            hatGrid.className = 'grid grid-cols-3 gap-2';
-
-            state.inventory.hats.forEach(hatId => {
-                const item = CATALOG.hats.find(h => h.id === hatId) || { name: 'Topi', icon: '🎩' };
-                const btn = document.createElement('button');
-                btn.className = `p-2 rounded-xl border flex flex-col items-center ${state.equipped.hat === hatId ? 'border-indigo-600 bg-indigo-50' : 'border-slate-200'}`;
-                btn.innerHTML = `
-                    <span class="text-2xl mb-1">${item.icon}</span>
-                    <span class="text-[10px] font-bold text-slate-700">${item.name}</span>
-                `;
-                btn.addEventListener('click', () => {
-                    state.equipped.hat = hatId;
-                    sounds.playSqueak();
-                    saveState();
-                    openWardrobe();
-                });
-                hatGrid.appendChild(btn);
-            });
-            hatSec.appendChild(hatGrid);
-            container.appendChild(hatSec);
-        }
-
-        /* --- MINI-GAME "TANGKAP MAKANAN" LOGIC --- */
+        // Mini Game System
         let miniGameActive = false;
-        let miniGameScore = 0;
-        let miniGameLives = 3;
-        let miniGamePouX = 150;
-        let miniGameItems = []; // falling items {x, y, vy, type: 'food'|'bomb', icon, points}
-
-        const mgCanvas = document.getElementById('miniGameCanvas');
-        const mgCtx = mgCanvas.getContext('2d');
-
         function startMiniGame() {
             document.getElementById('miniGameModal').classList.remove('hidden');
             miniGameActive = true;
-            miniGameScore = 0;
-            miniGameLives = 3;
-            miniGameItems = [];
-            miniGamePouX = mgCanvas.width / 2;
-
-            mgCanvas.width = mgCanvas.parentElement.clientWidth - 20;
-            mgCanvas.height = 300;
-
-            requestAnimationFrame(miniGameLoop);
         }
-
-        function endMiniGame() {
-            miniGameActive = false;
+        document.getElementById('exitGameBtn').onclick = () => {
             document.getElementById('miniGameModal').classList.add('hidden');
-
-            // Reward
-            const earnedCoins = Math.floor(miniGameScore / 5);
-            state.coins += earnedCoins;
-            state.stats.fun = Math.min(100, state.stats.fun + 25);
-            addXP(miniGameScore);
-            sounds.playLevelUp();
-            updateUI();
-            saveState();
-
-            alert(`Game Selesai! Skor: ${miniGameScore}. Anda mendapatkan +${earnedCoins} 🪙 & +25% Fun!`);
-        }
-
-        function miniGameLoop() {
-            if (!miniGameActive) return;
-
-            mgCtx.clearRect(0, 0, mgCanvas.width, mgCanvas.height);
-
-            // Spawn falling objects
-            if (Math.random() < 0.04) {
-                const isBomb = Math.random() < 0.25;
-                const foods = CATALOG.food;
-                const randomFood = foods[Math.floor(Math.random() * foods.length)];
-
-                miniGameItems.push({
-                    x: Math.random() * (mgCanvas.width - 40) + 20,
-                    y: -20,
-                    vy: 2.5 + Math.random() * 2,
-                    type: isBomb ? 'bomb' : 'food',
-                    icon: isBomb ? '💣' : randomFood.icon,
-                    points: isBomb ? 0 : 10
-                });
-            }
-
-            // Draw Basket / Pou at bottom
-            mgCtx.fillStyle = state.equipped.color;
-            mgCtx.beginPath();
-            mgCtx.arc(miniGamePouX, mgCanvas.height - 25, 25, 0, Math.PI * 2);
-            mgCtx.fill();
-            mgCtx.fillStyle = '#ffffff';
-            mgCtx.beginPath(); mgCtx.arc(miniGamePouX - 8, mgCanvas.height - 30, 4, 0, Math.PI * 2); mgCtx.arc(miniGamePouX + 8, mgCanvas.height - 30, 4, 0, Math.PI * 2); mgCtx.fill();
-
-            // Update & Draw items
-            for (let i = miniGameItems.length - 1; i >= 0; i--) {
-                const item = miniGameItems[i];
-                item.y += item.vy;
-
-                mgCtx.font = '26px sans-serif';
-                mgCtx.textAlign = 'center';
-                mgCtx.fillText(item.icon, item.x, item.y);
-
-                // Collision check
-                if (Math.hypot(item.x - miniGamePouX, item.y - (mgCanvas.height - 25)) < 35) {
-                    if (item.type === 'food') {
-                        miniGameScore += item.points;
-                        sounds.playEat();
-                    } else if (item.type === 'bomb') {
-                        miniGameLives--;
-                        sounds.playBoing();
-                        if (miniGameLives <= 0) {
-                            endMiniGame();
-                            return;
-                        }
-                    }
-                    miniGameItems.splice(i, 1);
-                    continue;
-                }
-
-                // Missed bottom
-                if (item.y > mgCanvas.height + 20) {
-                    miniGameItems.splice(i, 1);
-                }
-            }
-
-            // Update HUD
-            document.getElementById('gameScore').textContent = miniGameScore;
-            document.getElementById('gameLives').textContent = '❤️ '.repeat(miniGameLives);
-
-            requestAnimationFrame(miniGameLoop);
-        }
-
-        // Mini Game Controls
-        mgCanvas.addEventListener('mousemove', (e) => {
-            const rect = mgCanvas.getBoundingClientRect();
-            miniGamePouX = Math.max(25, Math.min(mgCanvas.width - 25, e.clientX - rect.left));
-        });
-
-        mgCanvas.addEventListener('touchmove', (e) => {
-            const rect = mgCanvas.getBoundingClientRect();
-            miniGamePouX = Math.max(25, Math.min(mgCanvas.width - 25, e.touches[0].clientX - rect.left));
-        });
-
-        document.getElementById('exitGameBtn').addEventListener('click', endMiniGame);
-
-        /* --- Global Setup & Event Bindings --- */
-        document.querySelectorAll('.room-nav-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                updateRoom(btn.dataset.room);
-                sounds.playSqueak();
-            });
-        });
-
-        document.getElementById('shopBtn').addEventListener('click', () => openShop('food'));
-        document.getElementById('closeShopBtn').addEventListener('click', closeShop);
-
-        document.getElementById('wardrobeBtn').addEventListener('click', openWardrobe);
-        document.getElementById('closeWardrobeBtn').addEventListener('click', () => {
-            document.getElementById('wardrobeModal').classList.add('hidden');
-        });
-
-        document.querySelectorAll('.shop-tab').forEach(tab => {
-            tab.addEventListener('click', () => renderShopItems(tab.dataset.shoptab));
-        });
-
-        document.getElementById('audioToggleBtn').addEventListener('click', () => {
-            sounds.enabled = !sounds.enabled;
-            document.getElementById('audioIcon').textContent = sounds.enabled ? '🔊' : '🔇';
-        });
+            miniGameActive = false;
+        };
 
         // Initialize App
-        window.addEventListener('load', () => {
-            resizeCanvas();
-            updateUI();
-            updateRoom(state.room);
-            requestAnimationFrame(gameLoop);
-        });
+        resizeCanvas();
+        updateUI();
+        requestAnimationFrame(animate);
     </script>
 </body>
 </html>
